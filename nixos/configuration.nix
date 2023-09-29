@@ -54,9 +54,9 @@
   services.xserver.desktopManager.plasma5.enable = true;
   programs.hyprland = {
     enable = true;
-    nvidiaPatches = true;
+    enableNvidiaPatches = true;
     xwayland.enable = true;
-  }
+  };
 
   # HID Devices
   services.xserver.libinput.enable = true;
