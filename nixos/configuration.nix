@@ -48,10 +48,15 @@
     };
   };
 
-  # Desktop sessions
+  # Desktop environments
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+  programs.hyprland = {
+    enable = true;
+    nvidiaPatches = true;
+    xwayland.enable = true;
+  }
 
   # HID Devices
   services.xserver.libinput.enable = true;
@@ -97,13 +102,18 @@
     home-manager
   ];
 
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
+
   # User Packages
   users.users.itm154.packages = with pkgs; [
     firefox
     kate
   ];
 
-  # Systemwide installed fonts
+  # Systemwide installed fonts packages
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
