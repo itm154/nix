@@ -1,15 +1,16 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports =
     [
       ./hardware-configuration.nix
       ./nvidia.nix
+      inputs.home-manager.nixosModules.home-manager
     ];
 
   # Nix options
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command", "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader.
   boot.loader = {
@@ -80,11 +81,20 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs;};
+    users = {
+      itm154 = import ../home-manager/home.nix;
+    };
+  };
+
   # System packages
   environment.systemPackages = with pkgs; [
     vim
     wget
     glxinfo
+
+    home-manager
   ];
 
   # User Packages
