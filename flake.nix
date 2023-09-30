@@ -1,49 +1,40 @@
 {
-  description = "My NixOs Flake";
+  description = "NixOs flakes";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland.url = "github:hyprwm/Hyprland";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs:
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    systems = [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    overlays = import ./overlays {inherit inputs;};
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
 
-  let
-    system = "x86_64-linux";
-
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-        allowUnfree = true;
-      };
-    };
-  in
-
-  # Main block
-  {
     nixosConfigurations = {
       itm154-nix = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
+        specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/configuration.nix
-        ];
-      };
-    };
-
-    homeConfigurations = {
-      itm154 = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./home-manager/home.nix
-          hyprland.homeManagerModules.default
-          { wayland.windowManager.hyprland.enable = true; }
         ];
       };
     };

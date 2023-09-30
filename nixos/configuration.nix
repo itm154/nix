@@ -1,25 +1,46 @@
-{ inputs, config, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./nvidia.nix
-      inputs.home-manager.nixosModules.home-manager
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./nvidia.nix
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
     ];
-
-  # Nix options
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Bootloader.
-  boot.loader = {
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 5;
-      };
-      efi.canTouchEfiVariables = true;
+    config = {
+      allowUnfree = true;
     };
+  };
+
+  nix = {
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+
+    settings = {
+      experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
+    };
+  };
+
+  # Bootloader
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 5;
+    };
+    efi.canTouchEfiVariables = true;
+  };
 
   # Networking
   networking.hostName = "itm154-nix";
@@ -48,13 +69,14 @@
     };
   };
 
+
   # Desktop environments
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   programs.hyprland = {
     enable = true;
-    enableNvidiaPatches = true;
+    nvidiaPatches = true;
     xwayland.enable = true;
   };
 
@@ -87,21 +109,20 @@
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs;};
+    extraSpecialArgs = { inherit inputs outputs; };
     users = {
       itm154 = import ../home-manager/home.nix;
     };
   };
-
+  
   # System packages
   environment.systemPackages = with pkgs; [
     vim
     wget
     glxinfo
-
-    home-manager
   ];
 
+  # Environment variables
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
@@ -113,8 +134,8 @@
     kate
   ];
 
-  # Systemwide installed fonts packages
-  fonts.packages = with pkgs; [
+  # Fonts packages
+  fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -126,12 +147,6 @@
     })
   ];
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
-
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "23.05";
 }
