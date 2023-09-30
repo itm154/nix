@@ -14,11 +14,10 @@
       wlr-randr
       wl-clipboard
     ];
-    
-    wayland.windowManager.hyprland = {
-      enable = true;
-      enableNvidiaPatches = true;
-      enableXwayland = true;
-    };
+  };
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    enableNvidiaPatches = true;
   };
 }
