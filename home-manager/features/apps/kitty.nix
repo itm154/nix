@@ -5,9 +5,10 @@
 }: {
   programs.kitty = {
     enable = true;
-    extraConfig = ''
+    extraConfig = with config.colorScheme.colors;
+    ''
       foreground              #CDD6F4
-      background              #1E1E2E
+      background              #${base00}
       selection_foreground    #1E1E2E
       selection_background    #F5E0DC
 
