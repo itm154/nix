@@ -11,10 +11,8 @@
       source=~/.config/hypr/mocha.conf
 
       exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      exec-once=/usr/bin/emacs --daemon
       exec-once=waybar
       exec-once=lxsession
-      exec-once=/usr/lib/kdeconnectd
       exec-once=fcitx5 -d
       exec-once=hyprpaper
       exec-once=swaync
