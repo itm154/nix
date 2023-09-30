@@ -18,7 +18,7 @@
     wayland.windowManager.hyprland = {
       enable = true;
       enableNvidiaPatches = true;
-      enable.xwayland = true;
+      enableXwayland = true;
     };
   };
 }

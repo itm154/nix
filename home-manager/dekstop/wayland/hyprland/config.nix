@@ -27,6 +27,6 @@
         new_optimizations = true;
         ignore_opacity = false;
       };
-    }:
+    };
   };
 }

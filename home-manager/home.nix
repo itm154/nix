@@ -12,6 +12,7 @@
   imports = [
     ./cli
     ./dekstop
+    inputs.hyprland.homeManagerModules.default
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
 
