@@ -14,6 +14,8 @@
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
+
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
   };
 
   outputs = {
@@ -23,6 +25,7 @@
     hyprland,
     hyprland-contrib,
     nix-colors,
+    nix-doom-emacs,
     ...
   } @ inputs: let
     inherit (self) outputs;

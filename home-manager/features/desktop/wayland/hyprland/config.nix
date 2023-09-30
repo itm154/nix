@@ -26,8 +26,8 @@
           gaps_in = 4
           gaps_out = 12
           border_size = 2
-          col.active_border = $base
-          col.inactive_border = $base
+          col.active_border = 0xff${base00}
+          col.inactive_border = 0xff${base08}
           layout = dwindle
       }
 
