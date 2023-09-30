@@ -9,7 +9,6 @@
       monitor=eDP-1, 1920x1080@60, 0x0, 1
       source=~/.config/hypr/mocha.conf
 
-### SThRTUP ###
       exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once=/usr/bin/emacs --daemon
       exec-once=waybar
@@ -22,7 +21,6 @@
       env=QT_QPA_PLATFORM,wayland
       env=SDL_VIDEODRIVER,wayland
 
-### GENERAL SETTINGS ###
       general {
           gaps_in = 4
           gaps_out = 12
@@ -32,7 +30,6 @@
           layout = dwindle
       }
 
-### WM SETTINGS ###
       input {
         kb_layout = us
           repeat_rate=50
@@ -98,7 +95,6 @@
           workspace_swipe = true
       }
 
-### RULES ###
       windowrule = float,Rofi
       windowrule = tile,kitty
       windowrule = tile,spotify
@@ -107,23 +103,19 @@
       windowrule = fullscreen, title:wlogout
       windowrule = tile, title:KeyOverlay
 
-### KEYBINDINGS ###
       $mainMod = SUPER
       $shiftmod = SUPERSHIFT
       $ctrlmod = SUPERCTRL
 
-### App keybindings
       bind = $mainMod, Return, exec, kitty
       bind = $mainMod, E, exec, emacsclient -c -a 'emacs'
       bind = $mainMod, B, exec, firefox
 
-### Scripts
       bind = $shiftmod, S, exec, grimblast --notify copysave area $HOME/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S_grim.png')
       bind = $shiftmod , A, exec, grimblast --notify copysave screen $HOME/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S_grim.png')
       bind = $mainMod, D, exec, $HOME/.config/rofi/launchers/type-2/launcher.sh
       bind = $mainMod, X, exec, wlogout
 
-### Device controls
       bind = , XF86MonBrightnessUp, exec, brightnessctl set 5%+
       bind = , XF86MonBrightnessDown, exec, brightnessctl set 5%-
       bind = , XF86AudioRaiseVolume, exec, pamixer -i 5
@@ -132,14 +124,12 @@
       bind = , XF86AudioPlay, exec, playerctl play-pause
       bind = $mainMod, SPACE, exec, playerctl play-pause
 
-### General keybindings
       bind = $mainMod, Q, killactive
       bind = $mainMod, G, togglefloating,
       bind = $mainMod, M, fullscreen
       bind = $mainMod, S, pseudo,
       bind = $mainMod, V, togglesplit,
 
-### Change window focus
       bind = $mainMod, H, movefocus, l
       bind = $mainMod, L, movefocus, r
       bind = $mainMod, K, movefocus, u
@@ -149,7 +139,6 @@
       bind = $mainMod, up, movefocus, u
       bind = $mainMod, down, movefocus, d
 
-### Move windows in workspace
       bind = $shiftmod, H, movewindow, l
       bind = $shiftmod, L, movewindow, r
       bind = $shiftmod, K, movewindow, u
@@ -159,7 +148,6 @@
       bind = $shiftmod, up, movewindow, u
       bind = $shiftmod, down, movewindow, d
 
-### Move windows in between workspace
       bind = $mainMod SHIFT, 1, movetoworkspace, 1
       bind = $mainMod SHIFT, 2, movetoworkspace, 2
       bind = $mainMod SHIFT, 3, movetoworkspace, 3
@@ -167,7 +155,6 @@
       bind = $mainMod SHIFT, 5, movetoworkspace, 5
       bind = $mainMod SHIFT, 6, movetoworkspace, 6
 
-### Change workspaces
       bind = $mainMod, 1, workspace, 1
       bind = $mainMod, 2, workspace, 2
       bind = $mainMod, 3, workspace, 3
@@ -177,18 +164,10 @@
       bind = $ctrlmod, K, workspace, e+1 # Next workspace
       bind = $ctrlmod, J, workspace, e-1 # Previous workspace
 
-### Window resizing
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
 
-## Notification Center
-      bind = $mainMod, N, exec, swaync-client -t
-
-## Restart Waybar
       bind = $shiftmod, W, exec, /home/itm154/.config/hypr/waybar.sh
-
-## Global shortcut
-      bind = ALT, Alt_R, pass,^discord$
     '';
   };
 }

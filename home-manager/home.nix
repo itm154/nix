@@ -10,10 +10,11 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-    ./cli
-    ./dekstop
+    ./features
     inputs.hyprland.homeManagerModules.default
     {wayland.windowManager.hyprland.enable = true;}
+
+    inputs.nix-colors.homeManagerModules.default
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
 
@@ -45,6 +46,8 @@
       allowUnfreePredicate = _: true;
     };
   };
+ 
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   home.username = "itm154";
   home.homeDirectory = "/home/itm154";

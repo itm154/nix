@@ -8,6 +8,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland.url = "github:hyprwm/hyprland";
+
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = {
@@ -15,6 +17,7 @@
     nixpkgs,
     home-manager,
     hyprland,
+    nix-colors,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -35,7 +38,7 @@
 
     nixosConfigurations = {
       itm154-nix = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = { inherit inputs outputs nix-colors; };
         modules = [
           hyprland.nixosModules.default
           {programs.hyprland.enable = true;}
