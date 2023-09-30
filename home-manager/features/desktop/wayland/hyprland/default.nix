@@ -2,6 +2,7 @@
   pkgs,
   osConfig,
   lib,
+  inputs,
   ...
 }: {
   imports = [
@@ -11,8 +12,16 @@
   home  = {
     # WM packages
     packages = with pkgs; [
+      brightnessctl
+      pamixer
+      playerctl
+
       wlr-randr
       wl-clipboard
+
+      rofi-wayland
+
+      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     ];
   };
 

@@ -8,6 +8,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland.url = "github:hyprwm/hyprland";
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-colors.url = "github:misterio77/nix-colors";
   };
@@ -17,6 +21,7 @@
     nixpkgs,
     home-manager,
     hyprland,
+    hyprland-contrib,
     nix-colors,
     ...
   } @ inputs: let

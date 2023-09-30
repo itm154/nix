@@ -10,6 +10,15 @@
       monitor=eDP-1, 1920x1080@60, 0x0, 1
       source=~/.config/hypr/mocha.conf
 
+      exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+      exec-once=/usr/bin/emacs --daemon
+      exec-once=waybar
+      exec-once=lxsession
+      exec-once=/usr/lib/kdeconnectd
+      exec-once=fcitx5 -d
+      exec-once=hyprpaper
+      exec-once=swaync
+
       env=QT_QPA_PLATFORM,wayland
       env=SDL_VIDEODRIVER,wayland
 
@@ -17,8 +26,8 @@
           gaps_in = 4
           gaps_out = 12
           border_size = 2
-          col.active_border = ${base00}
-          col.inactive_border = ${base00}
+          col.active_border = $base
+          col.inactive_border = $base
           layout = dwindle
       }
 
@@ -43,7 +52,7 @@
           drop_shadow = yes
           shadow_range = 8
           shadow_render_power = 2
-          col.shadow = ${base00}
+          col.shadow = rgba(1a1a1aee)
           blur {
             enabled = true
             new_optimizations = true
@@ -61,16 +70,15 @@
       }
 
       animations {
-          enabled = true
-
-          bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-
-          animation = windows, 1, 7, myBezier
-          animation = windowsOut, 1, 7, default, popin 80%
-          animation = border, 1, 10, default
-          animation = borderangle, 1, 8, default
+          enabled = yes
+          bezier = betterease, 0.05, 0.9, 0.1, 1
+          animation = windows, 1, 5, betterease
+          animation = windowsIn, 1, 5, betterease, slide
+          animation = windowsOut, 1, 5, default, popin 80%
+          animation = border, 1, 5, default
           animation = fade, 1, 7, default
-          animation = workspaces, 1, 6, default
+          animation = workspaces, 1, 3, betterease
+          animation = specialWorkspace, 1, 3, betterease, slidevert
       }
 
       dwindle {
@@ -90,9 +98,6 @@
       windowrule = float,Rofi
       windowrule = tile,kitty
       windowrule = tile,spotify
-      windowrule = fullscreen, wlogout
-      windowrule = float, title:wlogout
-      windowrule = fullscreen, title:wlogout
       windowrule = tile, title:KeyOverlay
 
       $mainMod = SUPER
@@ -105,8 +110,8 @@
 
       bind = $shiftmod, S, exec, grimblast --notify copysave area $HOME/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S_grim.png')
       bind = $shiftmod , A, exec, grimblast --notify copysave screen $HOME/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S_grim.png')
-      bind = $mainMod, D, exec, $HOME/.config/rofi/launchers/type-2/launcher.sh
-      bind = $mainMod, X, exec, wlogout
+      bind = $mainMod, D, exec, rofi -show drun
+      bind = $mainMod, X, exec, rofi
 
       bind = , XF86MonBrightnessUp, exec, brightnessctl set 5%+
       bind = , XF86MonBrightnessDown, exec, brightnessctl set 5%-
@@ -159,7 +164,11 @@
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
 
+      bind = $mainMod, N, exec, swaync-client -t
+
       bind = $shiftmod, W, exec, /home/itm154/.config/hypr/waybar.sh
+
+      bind = ALT, Alt_R, pass,^discord$
     '';
   };
 }
