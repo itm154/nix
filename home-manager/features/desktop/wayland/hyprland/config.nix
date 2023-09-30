@@ -5,18 +5,10 @@
   ...
 }: {
   wayland.windowManager.hyprland = {
-    extraConfig = ''
+    extraConfig = with config.colorScheme.colors;
+    ''
       monitor=eDP-1, 1920x1080@60, 0x0, 1
       source=~/.config/hypr/mocha.conf
-
-      exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      exec-once=/usr/bin/emacs --daemon
-      exec-once=waybar
-      exec-once=lxsession
-      exec-once=/usr/lib/kdeconnectd
-      exec-once=fcitx5 -d
-      exec-once=hyprpaper
-      exec-once=swaync
 
       env=QT_QPA_PLATFORM,wayland
       env=SDL_VIDEODRIVER,wayland
@@ -25,8 +17,8 @@
           gaps_in = 4
           gaps_out = 12
           border_size = 2
-          col.active_border = $base
-          col.inactive_border = $base
+          col.active_border = ${base00}
+          col.inactive_border = ${base00}
           layout = dwindle
       }
 
@@ -51,7 +43,7 @@
           drop_shadow = yes
           shadow_range = 8
           shadow_render_power = 2
-          col.shadow = rgba(1a1a1aee)
+          col.shadow = ${base00}
           blur {
             enabled = true
             new_optimizations = true
