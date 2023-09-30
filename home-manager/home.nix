@@ -10,6 +10,8 @@
 }: {
   # You can import other home-manager modules here
   imports = [
+    ./cli
+    ./dekstop
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
 
@@ -54,13 +56,6 @@
   };
 
   programs.neovim.enable = true;
-
-  programs.git = {
-    enable = true;
-    userName = "itm154";
-    userEmail = "ashrulfahmi@gmail.com";
-  };
-
 
   systemd.user.startServices = "sd-switch";
   programs.home-manager.enable = true;
