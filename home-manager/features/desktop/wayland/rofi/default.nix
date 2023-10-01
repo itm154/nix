@@ -1,8 +1,8 @@
-{ config, desktop, pkgs, lib, theme, ... }:
+{ config, pkgs, lib, theme, ... }:
 let
   inherit ((import ./lib.nix { inherit lib; })) toRasi;
 
-  powermenu = import ./powermenu { inherit config pkgs lib desktop theme; };
+  powermenu = import ./powermenu { inherit config pkgs lib theme; };
   rofiTheme = (import ./theme.nix { inherit theme pkgs config; }).theme;
 in
 {
