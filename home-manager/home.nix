@@ -1,16 +1,11 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  pkgs,
-  ...
-}: {
+{ inputs, outputs, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
     ./features
     inputs.hyprland.homeManagerModules.default
-    {wayland.windowManager.hyprland.enable = true;}
+    { wayland.windowManager.hyprland.enable = true; }
 
     inputs.nix-colors.homeManagerModules.default
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -44,19 +39,15 @@
       allowUnfreePredicate = _: true;
     };
   };
- 
+
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   home.username = "itm154";
   home.homeDirectory = "/home/itm154";
 
-  home.packages = with pkgs; [
-    kitty
-  ];
+  home.packages = with pkgs; [ kitty ];
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 
   programs.neovim.enable = true;
 

@@ -1,5 +1,1 @@
-{
-  imports = [
-    ./wayland
-  ];
-}
+{ imports = [ ./wayland ]; }

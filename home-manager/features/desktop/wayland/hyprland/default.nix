@@ -1,13 +1,7 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
-  imports = [
-    ./config.nix
-  ];
+{ pkgs, inputs, ... }: {
+  imports = [ ./config.nix ];
 
-  home  = {
+  home = {
     # WM packages
     packages = with pkgs; [
       brightnessctl

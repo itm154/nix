@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./kitty.nix
-    ./emacs
-  ];
-}
+{ imports = [ ./kitty.nix ./emacs ]; }

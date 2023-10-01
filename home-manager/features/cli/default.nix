@@ -1,6 +1,4 @@
 {
   # Command line programs
-  imports = [
-  ./git.nix
-  ];
+  imports = [ ./git.nix ];
 }

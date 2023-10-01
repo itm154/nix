@@ -1,12 +1,6 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}: {
+{ inputs, pkgs, config, ... }: {
   wayland.windowManager.hyprland = {
-    extraConfig = with config.colorScheme.colors;
-    ''
+    extraConfig = with config.colorScheme.colors; ''
       monitor=eDP-1, 1920x1080@60, 0x0, 1
 
       exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -98,7 +92,7 @@
       windowrule = tile, title:KeyOverlay
 
       blurls = waybar
-      
+
       $mainMod = SUPER
       $shiftmod = SUPERSHIFT
       $ctrlmod = SUPERCTRL

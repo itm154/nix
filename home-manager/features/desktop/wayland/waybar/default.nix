@@ -1,13 +1,10 @@
-{
-  config,
-  ...
-}: {
+{ config, ... }: {
   programs.waybar = {
     enable = true;
     settings = {
       mainbar = {
         layer = "top";
-        modules-left = [ "clock" "custom/cava" "custom/playerctl"];
+        modules-left = [ "clock" "custom/cava" "custom/playerctl" ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
           "tray"
@@ -25,14 +22,14 @@
         };
 
         "hyprland/workspaces" = {
-          active-only =  false;
-          all-outputs =  true;
-          disable-scroll =  false;
-          on-scroll-up =  "hyprctl dispatch workspace -1";
-          on-scroll-down =  "hyprctl dispatch workspace +1";
-          format =  "{icon}";
-          on-click =  "activate";
-          format-icons =  {
+          active-only = false;
+          all-outputs = true;
+          disable-scroll = false;
+          on-scroll-up = "hyprctl dispatch workspace -1";
+          on-scroll-down = "hyprctl dispatch workspace +1";
+          format = "{icon}";
+          on-click = "activate";
+          format-icons = {
             "1" = "一";
             "2" = "二";
             "3" = "三";
@@ -47,7 +44,8 @@
           format = "{icon}  <span>{}</span>";
           return-type = "json";
           max-length = 35;
-          exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+          exec = ''
+            playerctl -a metadata --format '{"text": "{{artist}} ~ {{markup_escape(title)}}", "tooltip": "{{playerName}} : {{markup_escape(title)}}", "alt": "{{status}}", "class": "{{status}}"}' -F'';
           on-click-middle = "playerctl play-pause";
           on-click = "playerctl previous";
           on-click-right = "playerctl next";
@@ -99,9 +97,7 @@
           format-muted = "󰝟 ";
           format-bluetooth = "{icon} {volume}";
           format-bluetooth-muted = "󰝟 ";
-          format-icons = {
-            default = ["" "" " "];
-          };
+          format-icons = { default = [ "" "" " " ]; };
           on-click-middle = "amixer -D pulse set Master 1+ toggle";
           on-scroll-up = "pamixer -i 5";
           on-scroll-down = "pamixer -d 5";
@@ -110,7 +106,7 @@
         backlight = {
           scroll-step = 5;
           format = "{icon} {percent}";
-          format-icons = ["" "" "" "" "" "" "" "" ""];
+          format-icons = [ "" "" "" "" "" "" "" "" "" ];
           tooltip = false;
         };
         battery = {
@@ -121,7 +117,7 @@
           format = "{icon} {capacity}%";
           format-charging = " {capacity}%";
           format-good = " {capacity}%";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [ "" "" "" "" "" ];
           tooltip = false;
         };
         network = {
@@ -136,8 +132,7 @@
       };
     };
 
-    style = with config.colorScheme.colors;
-      ''
+    style = with config.colorScheme.colors; ''
       /* Global */
       * {
         font-family: JetBrains Mono Nerd Font;
@@ -283,6 +278,6 @@
       }
 
         /* END-Right */
-      '';
+    '';
   };
 }

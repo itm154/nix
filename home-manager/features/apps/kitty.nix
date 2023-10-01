@@ -1,12 +1,7 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
   programs.kitty = {
     enable = true;
-    extraConfig = with config.colorScheme.colors;
-    ''
+    extraConfig = with config.colorScheme.colors; ''
       foreground              #CDD6F4
       background              #1E1E2E
       selection_foreground    #1E1E2E
@@ -52,7 +47,7 @@
       tab_bar_edge bottom
       tab_bar_style fade
       tab_powerline_style slanted
-      tab_title_template {title}{' :{}:'.format(num_windows) if num_windows > 1 else ''\}
+      tab_title_template {title}{' :{}:'.format(num_windows) if num_windows > 1 else }
 
       map kitty_mod+k next_tab
       map kitty_mod+j previous_tab
