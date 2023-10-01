@@ -104,7 +104,7 @@
       bind = $shiftmod, S, exec, grimblast --notify copysave area $HOME/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S_grim.png')
       bind = $shiftmod , A, exec, grimblast --notify copysave screen $HOME/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S_grim.png')
       bind = $mainMod, D, exec, rofi -show drun
-      bind = $mainMod, X, exec, rofi
+      bind = $mainMod, X, exec, rofi power-menu hyprland
 
       bind = , XF86MonBrightnessUp, exec, brightnessctl set 5%+
       bind = , XF86MonBrightnessDown, exec, brightnessctl set 5%-
