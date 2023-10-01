@@ -1,7 +1,5 @@
 {
   pkgs,
-  osConfig,
-  lib,
   inputs,
   ...
 }: {
@@ -22,6 +20,7 @@
       rofi-wayland
 
       inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+      hyprpaper
     ];
   };
 
