@@ -96,10 +96,12 @@
         pulseaudio = {
           scroll-step = 5;
           format = "{icon} {volume}";
-          format-muted = " ";
+          format-muted = "󰝟 ";
           format-bluetooth = "{icon} {volume}";
-          format-bluetooth-muted = " ";
-          format-icons = {default = ["" "" " "];};
+          format-bluetooth-muted = "󰝟 ";
+          format-icons = {
+            default = ["" "" " "];
+          };
           on-click-middle = "amixer -D pulse set Master 1+ toggle";
           on-scroll-up = "pamixer -i 5";
           on-scroll-down = "pamixer -d 5";
