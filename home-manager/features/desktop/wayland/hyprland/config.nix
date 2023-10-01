@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, ... }: {
+{ config, ... }: {
   wayland.windowManager.hyprland = {
     extraConfig = with config.colorScheme.colors; ''
       monitor=eDP-1, 1920x1080@60, 0x0, 1

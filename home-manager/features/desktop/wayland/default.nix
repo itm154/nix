@@ -1,1 +1,1 @@
-{ imports = [ ./hyprland ./waybar ]; }
+{ imports = [ ./hyprland ./waybar ./rofi]; }
