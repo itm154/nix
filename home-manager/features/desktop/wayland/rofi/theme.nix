@@ -5,13 +5,13 @@
     in
     {
       "*" = with config.colorScheme.colors; {
-        bg-col = mkLiteral "${base01}";
-        bg-col-light = mkLiteral "${base01}";
-        border-col = mkLiteral "${base0D}";
-        selected-col = mkLiteral "${base01}";
-        accent = mkLiteral "${base0D}";
-        fg-col = mkLiteral "${base05}";
-        grey = mkLiteral "${base04}";
+        bg-col = mkLiteral "#${base01}";
+        bg-col-light = mkLiteral "#${base01}";
+        border-col = mkLiteral "#${base0D}";
+        selected-col = mkLiteral "#${base01}";
+        accent = mkLiteral "#${base0D}";
+        fg-col = mkLiteral "#${base05}";
+        grey = mkLiteral "#${base04}";
 
         width = 600;
         font = "JetBrains Mono Nerd Font 14";

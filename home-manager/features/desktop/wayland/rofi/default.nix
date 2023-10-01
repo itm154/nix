@@ -11,7 +11,7 @@ in
     package = pkgs.rofi-wayland;
 
     theme = rofiTheme;
-    terminal = "${pkgs.alacritty}/bin/alacritty";
+    terminal = "${pkgs.kitty}/bin/kitty";
     plugins = with pkgs; [
       rofi-calc
       rofi-emoji

@@ -24,12 +24,12 @@ in {
       };
 
       "*" = with config.colorScheme.colors; {
-        background = mkLiteral "${base00}";
-        background-alt = mkLiteral "${base01}";
-        foreground = mkLiteral "${base05}";
-        accent = mkLiteral "${base0D}";
-        active = mkLiteral "${base0B}";
-        urgent = mkLiteral "${base08}";
+        background = mkLiteral "#${base00}";
+        background-alt = mkLiteral "#${base01}";
+        foreground = mkLiteral "#${base05}";
+        accent = mkLiteral "#${base0D}";
+        active = mkLiteral "#${base0B}";
+        urgent = mkLiteral "#${base08}";
 
         font = "JetBrains Mono Nerd Font 24";
       };
