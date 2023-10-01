@@ -27,9 +27,9 @@ in {
         background = mkLiteral "#${base00}";
         background-alt = mkLiteral "#${base01}";
         foreground = mkLiteral "#${base05}";
-        accent = mkLiteral "#${base0D}";
+        accent = mkLiteral "#${base08}";
         active = mkLiteral "#${base0B}";
-        urgent = mkLiteral "#${base08}";
+        urgent = mkLiteral "#${base0D}";
 
         font = "JetBrains Mono Nerd Font 24";
       };
@@ -49,7 +49,7 @@ in {
         margin = 0;
         padding = 0;
         border = mkLiteral "1px solid";
-        border-radius = 8;
+        border-radius = 12;
         border-color = mkLiteral "@accent";
         cursor = "default";
         background-color = mkLiteral "@background";
@@ -104,7 +104,7 @@ in {
         margin = 0;
         padding = mkLiteral "40 10";
         border = 0;
-        border-radius = 8;
+        border-radius = 12;
         border-color = mkLiteral "@accent";
         background-color = mkLiteral "@background-alt";
         text-color = mkLiteral "@foreground";

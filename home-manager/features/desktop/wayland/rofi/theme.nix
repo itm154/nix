@@ -9,7 +9,7 @@
         bg-col-light = mkLiteral "#${base01}";
         border-col = mkLiteral "#${base0D}";
         selected-col = mkLiteral "#${base01}";
-        accent = mkLiteral "#${base0D}";
+        accent = mkLiteral "#${base08}";
         fg-col = mkLiteral "#${base05}";
         grey = mkLiteral "#${base04}";
 
@@ -27,7 +27,7 @@
         border = 1;
         border-color = mkLiteral "@border-col";
         background-color = mkLiteral "@bg-col";
-        border-radius = 8;
+        border-radius = 12;
       };
 
       "mainbox" = {
@@ -37,7 +37,7 @@
       "inputbar" = {
         children = mkLiteral "[ prompt, entry ]";
         background-color = mkLiteral "@bg-col";
-        border-radius = 8;
+        border-radius = 12;
         padding = 2;
       };
 
@@ -45,7 +45,7 @@
         background-color = mkLiteral "@accent";
         padding = 6;
         text-color = mkLiteral "@bg-col";
-        border-radius = 8;
+        border-radius = 12;
         margin = mkLiteral "20 0 0 20";
       };
 
@@ -106,7 +106,7 @@
         background-color = mkLiteral "@bg-col-light";
         margin = 2;
         padding = 2;
-        border-radius = 8;
+        border-radius = 12;
       };
 
       "textbox" = {
