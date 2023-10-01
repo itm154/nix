@@ -13,11 +13,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-colors.url = "github:misterio77/nix-colors";
 
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
@@ -29,7 +24,6 @@
     home-manager,
     hyprland,
     hyprland-contrib,
-    anyrun,
     nix-colors,
     nix-doom-emacs,
     ...
