@@ -1,20 +1,20 @@
-{ config, theme, ... }: {
+{ config, ... }: {
   theme =
     let
       inherit (config.lib.formats.rasi) mkLiteral;
     in
     {
-      "*" = {
-        bg-col = mkLiteral "${theme.colours.bgDark}";
-        bg-col-light = mkLiteral "${theme.colours.bgDark}";
-        border-col = mkLiteral "${theme.colours.accent}";
-        selected-col = mkLiteral "${theme.colours.bgDark}";
-        accent = mkLiteral "${theme.colours.accent}";
-        fg-col = mkLiteral "${theme.colours.text}";
-        grey = mkLiteral "${theme.colours.overlay0}";
+      "*" = with config.colorScheme.colors; {
+        bg-col = mkLiteral "${base01}";
+        bg-col-light = mkLiteral "${base01}";
+        border-col = mkLiteral "${base0D}";
+        selected-col = mkLiteral "${base01}";
+        accent = mkLiteral "${base0D}";
+        fg-col = mkLiteral "${base05}";
+        grey = mkLiteral "${base04}";
 
         width = 600;
-        font = "${theme.fonts.default.name} 14";
+        font = "JetBrains Mono Nerd Font 14";
       };
 
       "element-text,element-icon,mode-switcher" = {

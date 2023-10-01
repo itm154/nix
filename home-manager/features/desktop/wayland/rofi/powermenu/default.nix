@@ -1,4 +1,4 @@
-{ config, pkgs, lib, theme, ... }: let
+{ config, pkgs, lib, ... }: let
   desktop = "hyprland";
 in {
   # For some reason, waybar cannot find rofi in the path when executing this script.
@@ -23,15 +23,15 @@ in {
         show-icons = false;
       };
 
-      "*" = {
-        background = mkLiteral "${theme.colours.bgDark}";
-        background-alt = mkLiteral "${theme.colours.bg}";
-        foreground = mkLiteral "${theme.colours.text}";
-        accent = mkLiteral "${theme.colours.accent}";
-        active = mkLiteral "${theme.colours.green}";
-        urgent = mkLiteral "${theme.colours.red}";
+      "*" = with config.colorScheme.colors; {
+        background = mkLiteral "${base00}";
+        background-alt = mkLiteral "${base01}";
+        foreground = mkLiteral "${base05}";
+        accent = mkLiteral "${base0D}";
+        active = mkLiteral "${base0B}";
+        urgent = mkLiteral "${base08}";
 
-        font = "${theme.fonts.default.name} 24";
+        font = "JetBrains Mono Nerd Font 24";
       };
 
       "window" = {
