@@ -1,7 +1,4 @@
-{ inputs, outputs, pkgs, ... }:
-let
-  softwareConfig = import ./features/apps/software.nix;
-in {
+{ inputs, outputs, pkgs, ... }: {
   imports = [
     ./features
     inputs.hyprland.homeManagerModules.default
@@ -45,7 +42,15 @@ in {
   home.username = "itm154";
   home.homeDirectory = "/home/itm154";
 
-  home.packages = with pkgs; lib.concatLists [ softwareConfig.additionalPackages [ kitty lxde.lxsession ] ];
+  home.packages = with pkgs; [ 
+    kitty 
+    lxde.lxsession
+    gnome.nautilus
+
+    wineWowPackages.stable
+    winetricks
+    # wineWowPackages.waylandFull
+  ];
   home.sessionVariables = { EDITOR = "nvim"; };
 
   programs.neovim.enable = true;
