@@ -27,4 +27,6 @@
       }
     ];
   };
+
+  xdg.configFile.fish.source = ./config/fish/config.fish;
 }
