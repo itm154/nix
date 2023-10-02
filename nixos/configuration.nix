@@ -44,7 +44,10 @@
 
   # Networking
   networking.hostName = "itm154-nix";
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
+  };
 
   # Locales
   time.timeZone = "Asia/Kuching";
