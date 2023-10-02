@@ -5,10 +5,7 @@
 
       exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once=waybar
-      exec-once=lxsession
-      exec-once=fcitx5 -d
-      exec-once=hyprpaper
-      exec-once=swaync
+      exec-once=mako
 
       env=QT_QPA_PLATFORM,wayland
       env=SDL_VIDEODRIVER,wayland
