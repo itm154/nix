@@ -1,7 +1,7 @@
-# This is your home-manager configuration file
-# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs, outputs, pkgs, ... }: {
-  # You can import other home-manager modules here
+{ inputs, outputs, pkgs, ... }:
+let
+  softwareConfig = import ./features/apps/software.nix;
+in {
   imports = [
     ./features
     inputs.hyprland.homeManagerModules.default
@@ -45,7 +45,7 @@
   home.username = "itm154";
   home.homeDirectory = "/home/itm154";
 
-  home.packages = with pkgs; [ kitty lxde.lxsession ];
+  home.packages = with pkgs; lib.concatLists [ softwareConfig.additionalPackages [ kitty lxde.lxsession ] ];
   home.sessionVariables = { EDITOR = "nvim"; };
 
   programs.neovim.enable = true;
