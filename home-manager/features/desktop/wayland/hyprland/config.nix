@@ -6,6 +6,7 @@
       exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once=waybar
       exec-once=lxsession
+      exec-once=gnome-keyring-daemon --start --components=secrets
       exec-once=mako
 
       env=QT_QPA_PLATFORM,wayland
