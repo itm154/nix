@@ -10,8 +10,8 @@
     borderRadius = 12;
     output = "eDP-1";
     textColor = "#${base05}";
-    font = "JetBrains Mono Nerd Font 16";
-    width = 250;
+    font = "JetBrains Mono Nerd Font 12";
+    width = 400;
     height = 200;
     defaultTimeout = 3000;
   };

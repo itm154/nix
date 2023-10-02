@@ -45,8 +45,7 @@
   home.username = "itm154";
   home.homeDirectory = "/home/itm154";
 
-  home.packages = with pkgs; [ kitty polkit_gnome];
-
+  home.packages = with pkgs; [ kitty lxde.lxsession ];
   home.sessionVariables = { EDITOR = "nvim"; };
 
   programs.neovim.enable = true;
