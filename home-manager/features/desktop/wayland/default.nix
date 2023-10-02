@@ -1,1 +1,1 @@
-{ imports = [ ./hyprland ./waybar ./rofi]; }
+{ imports = [ ./hyprland ./waybar ./rofi ./mako.nix ./gtk.nix ]; }

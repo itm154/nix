@@ -24,7 +24,7 @@
 
       "window" = {
         height = 360;
-        border = 1;
+        border = 0;
         border-color = mkLiteral "@border-col";
         background-color = mkLiteral "@bg-col";
         border-radius = 12;
