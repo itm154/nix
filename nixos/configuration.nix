@@ -77,6 +77,7 @@
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.gnome.gnome-keyring.enable = true;
+  services.flatpak.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
   security.pam.services.swaylock = {};
 
