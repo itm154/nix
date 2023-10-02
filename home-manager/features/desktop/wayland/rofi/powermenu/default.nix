@@ -7,7 +7,6 @@ in {
       export PATH=${lib.makeBinPath (with pkgs;[
       rofi-wayland
       systemd
-      swaylock-effects
     ]
     ++ lib.optional (desktop =="hyprland") hyprland)}
     
