@@ -12,9 +12,10 @@
       };
 
       extraConfig = {
-        credential.helper = "${
-            pkgs.git.override { withLibsecret = true; }
-          }/bin/git-credential-libsecret";
+        credential = {
+          credentialStore = "secretservice";
+          helper = "${pkgs.nur.repos.utybo.git-credential-manager}/bin/git-credential-manager-core";
+        };
       };
     };
   };
