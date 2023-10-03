@@ -14,6 +14,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
+
     nix-colors.url = "github:misterio77/nix-colors";
 
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
@@ -26,6 +28,7 @@
     home-manager,
     hyprland,
     hyprland-contrib,
+    spicetify-nix,
     nix-colors,
     nix-doom-emacs,
     ...
