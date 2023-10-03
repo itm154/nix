@@ -1,9 +1,4 @@
-{
-  inputs,
-  config,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [inputs.nix-doom-emacs.hmModule];
   programs.doom-emacs = {
     enable = true;
