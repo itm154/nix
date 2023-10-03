@@ -5,8 +5,7 @@
     { wayland.windowManager.hyprland.enable = true; }
 
     inputs.nix-colors.homeManagerModules.default
-    # If you want to use modules your own flake exports (from modules/home-manager):
-    # outputs.homeManagerModules.example
+    # If you want to use modules your own flake exports (from modules/home-manager): outputs.homeManagerModules.example
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
@@ -49,6 +48,9 @@
 
     wineWowPackages.stable
     winetricks
+
+    rustc
+    cargo
     # wineWowPackages.waylandFull
   ];
   home.sessionVariables = { EDITOR = "nvim"; };

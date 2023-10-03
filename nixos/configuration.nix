@@ -126,6 +126,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+    gcc
     glxinfo
   ];
 

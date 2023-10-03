@@ -1,4 +1,4 @@
 {
   # Command line programs
-  imports = [ ./git.nix ./neovim.nix ];
+  imports = [ ./git.nix ./neovim.nix ./lazygit.nix ];
 }
