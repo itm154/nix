@@ -2,7 +2,8 @@
 let
   custom = ./custom;
 in 
-stdenv.stdenv.mkDerivation (finalAttrs: {
+
+stdenv.mkDerivation (finalAttrs: {
   pname = "nvchad";
   version = "1.0.0";
 
@@ -15,7 +16,7 @@ stdenv.stdenv.mkDerivation (finalAttrs: {
 
   installPhase = ''
     mkdir $out
-    cp -r "$out/"
+    cp -r * "$out/"
     mkdir -p "$out/lua/custom"
     cp -r ${custom}/* "$out/lua/custom/"
   '';
