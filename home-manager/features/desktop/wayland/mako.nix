@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   services.mako = with config.colorScheme.colors; {
     enable = true;
     backgroundColor = "#${base00}";

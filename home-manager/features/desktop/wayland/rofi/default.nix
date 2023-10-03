@@ -1,11 +1,14 @@
-{ config, pkgs, lib, ... }:
-let
-  inherit ((import ./lib.nix { inherit lib; })) toRasi;
-
-  powermenu = import ./powermenu { inherit config pkgs lib; };
-  rofiTheme = (import ./theme.nix { inherit pkgs config; }).theme;
-in
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit ((import ./lib.nix {inherit lib;})) toRasi;
+
+  powermenu = import ./powermenu {inherit config pkgs lib;};
+  rofiTheme = (import ./theme.nix {inherit pkgs config;}).theme;
+in {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -32,7 +35,7 @@ in
   };
 
   home = {
-    packages = [ powermenu.rofi-power ];
+    packages = [powermenu.rofi-power];
     file = {
       ".config/rofi/powermenu.rasi".text = toRasi powermenu.theme;
     };

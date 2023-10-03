@@ -1,5 +1,9 @@
-{ pkgs, inputs, ... }: {
-  imports = [ ./config.nix ];
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [./config.nix];
 
   home = {
     # WM packages

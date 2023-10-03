@@ -1,11 +1,11 @@
-{ config, ... }: {
+{config, ...}: {
   programs.waybar = {
     enable = true;
     settings = {
       mainbar = {
         layer = "top";
-        modules-left = [ "clock" "custom/cava" "custom/playerctl" ];
-        modules-center = [ "hyprland/workspaces" ];
+        modules-left = ["clock" "custom/cava" "custom/playerctl"];
+        modules-center = ["hyprland/workspaces"];
         modules-right = [
           "tray"
           "cpu"
@@ -97,7 +97,7 @@
           format-muted = "󰝟 ";
           format-bluetooth = "{icon} {volume}";
           format-bluetooth-muted = "󰝟 ";
-          format-icons = { default = [ "" "" " " ]; };
+          format-icons = {default = ["" "" " "];};
           on-click-middle = "amixer -D pulse set Master 1+ toggle";
           on-scroll-up = "pamixer -i 5";
           on-scroll-down = "pamixer -d 5";
@@ -106,7 +106,7 @@
         backlight = {
           scroll-step = 5;
           format = "{icon} {percent}";
-          format-icons = [ "" "" "" "" "" "" "" "" "" ];
+          format-icons = ["" "" "" "" "" "" "" "" ""];
           tooltip = false;
         };
         battery = {
@@ -117,7 +117,7 @@
           format = "{icon} {capacity}%";
           format-charging = "󰂄 {capacity}%";
           format-good = "󰂃 {capacity}%";
-          format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+          format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           tooltip = false;
         };
         network = {

@@ -1,1 +1,1 @@
-{ imports = [ ./desktop ./cli ./apps ]; }
+{imports = [./desktop ./cli ./apps];}

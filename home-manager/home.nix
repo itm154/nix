@@ -1,8 +1,13 @@
-{ inputs, outputs, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./features
     inputs.hyprland.homeManagerModules.default
-    { wayland.windowManager.hyprland.enable = true; }
+    {wayland.windowManager.hyprland.enable = true;}
 
     inputs.nix-colors.homeManagerModules.default
     # If you want to use modules your own flake exports (from modules/home-manager): outputs.homeManagerModules.example
@@ -42,8 +47,8 @@
   home.username = "itm154";
   home.homeDirectory = "/home/itm154";
 
-  home.packages = with pkgs; [ 
-    kitty 
+  home.packages = with pkgs; [
+    kitty
     lxde.lxsession
     gnome.nautilus
 
@@ -54,7 +59,7 @@
     cargo
     # wineWowPackages.waylandFull
   ];
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = {EDITOR = "nvim";};
 
   programs.neovim.enable = true;
 

@@ -6,7 +6,7 @@
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
-    settings =  with config.colorScheme.colors; {
+    settings = with config.colorScheme.colors; {
       screenshots = true;
       clock = true;
       timestr = "%I:%M:%S %p";

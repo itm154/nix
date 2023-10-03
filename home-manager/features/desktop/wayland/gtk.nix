@@ -19,9 +19,9 @@
     theme = {
       name = "Catppuccin-Mocha-Standard-Red-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "red" ];
+        accents = ["red"];
         size = "standard";
-        tweaks = [ "normal" ];
+        tweaks = ["normal"];
         variant = "mocha";
       };
     };

@@ -72,7 +72,6 @@
     };
   };
 
-
   # Desktop environments
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
@@ -112,16 +111,16 @@
   users.users.itm154 = {
     isNormalUser = true;
     description = "itm154";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {inherit inputs outputs;};
     users = {
       itm154 = import ../home-manager/home.nix;
     };
   };
-  
+
   # System packages
   environment.systemPackages = with pkgs; [
     vim
@@ -147,7 +146,8 @@
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
-    (nerdfonts.override { fonts = [ 
+    (nerdfonts.override {
+      fonts = [
         "JetBrainsMono"
         "IBMPlexMono"
         "FiraCode"
