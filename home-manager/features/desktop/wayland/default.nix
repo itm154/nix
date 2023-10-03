@@ -1,1 +1,1 @@
-{imports = [./hyprland ./waybar ./rofi ./mako.nix ./gtk.nix ./qt.nix ./cursor.nix ./swaylock.nix];}
+{imports = [./hyprland ./waybar ./rofi ./mako.nix ./gtk.nix ./qt.nix ./swaylock.nix];}

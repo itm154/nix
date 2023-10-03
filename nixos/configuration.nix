@@ -138,7 +138,6 @@
   # User Packages
   users.users.itm154.packages = with pkgs; [
     firefox
-    kate
   ];
 
   # Fonts packages
