@@ -1,14 +1,9 @@
-{
-  pkgs,
-  ...
-}: 
-let
+{pkgs, ...}: let
   catppuccin = pkgs.catppuccin-kvantum.override {
     variant = "Mocha";
     accent = "Red";
   };
-in 
-{
+in {
   qt = {
     enable = true;
     style.name = "kvantum";
@@ -16,7 +11,6 @@ in
 
   home = {
     packages = with pkgs; [
-
       catppuccin
       libsForQt5.qtstyleplugin-kvantum
       qt6Packages.qtstyleplugin-kvantum
