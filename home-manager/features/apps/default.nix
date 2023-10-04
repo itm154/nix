@@ -1,1 +1,1 @@
-{imports = [./kitty.nix ./emacs ./spicetify.nix ];}
+{imports = [./kitty.nix ./emacs];}

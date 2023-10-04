@@ -80,12 +80,6 @@
   security.pam.services.sddm.enableGnomeKeyring = true;
   security.pam.services.swaylock = {};
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   nvidiaPatches = true;
-  #   xwayland.enable = true;
-  # };
-
   # HID Devices
   services.xserver.libinput.enable = true;
   services.xserver = {
@@ -111,8 +105,11 @@
   users.users.itm154 = {
     isNormalUser = true;
     description = "itm154";
+    shell = pkgs.fish;
     extraGroups = ["networkmanager" "wheel"];
   };
+
+  programs.fish.enable = true;
 
   home-manager = {
     extraSpecialArgs = {inherit inputs outputs;};

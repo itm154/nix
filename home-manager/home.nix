@@ -10,7 +10,6 @@
     {wayland.windowManager.hyprland.enable = true;}
 
     inputs.nix-colors.homeManagerModules.default
-    inputs.spicetify-nix.homeManagerModule
     # If you want to use modules your own flake exports (from modules/home-manager): outputs.homeManagerModules.example
 
     # Or modules exported from other flakes (such as nix-colors):
