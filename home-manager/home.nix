@@ -2,10 +2,7 @@
   inputs,
   outputs,
   pkgs,
-  ...
-}: {
-  imports = [
-    ./features
+  ... }: { imports = [ ./features
     inputs.hyprland.homeManagerModules.default
     {wayland.windowManager.hyprland.enable = true;}
 
@@ -59,7 +56,8 @@
     cargo
 
     unzip
-    # wineWowPackages.waylandFull
+    
+    eza
   ];
   home.sessionVariables = {EDITOR = "nvim";};
 
